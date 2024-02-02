@@ -19,14 +19,16 @@ function addBook(){
     let author=document.getElementById("pisac").value;
     let pages=document.getElementById("strana").value;
     let read=document.getElementById("citano").value;
-    console.log(title);
-    
-    myLibrary[i]=new Book(title,author,pages,read);
-    console.log(myLibrary[1].info())
-    i++;
-    for(let j=0;j<i;j++)
+    if(read!=="" && title!=="" && author!=="" && pages!=="")
     {
-        myLibrary[j].info();
+        console.log(title,author,pages,read);
+    
+        myLibrary[i]=new Book(title,author,pages,read);
+        i++;
+        for(let j=0;j<i;j++)
+        {
+            myLibrary[j].info();
+        }
     }
 }
 
