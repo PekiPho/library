@@ -1,4 +1,5 @@
 let i=1;
+let data=document.querySelector(".data");
 const myLibrary=[];
 
 function Book(title,author,pages,read){
@@ -7,7 +8,7 @@ function Book(title,author,pages,read){
     this.pages=pages;
     this.read=read;
     this.info = function(){
-        console.log(this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read);
+        return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read;
     }
 }
 
@@ -21,13 +22,14 @@ function addBook(){
     let read=document.getElementById("citano").value;
     if(read!=="" && title!=="" && author!=="" && pages!=="")
     {
-        console.log(title,author,pages,read);
-    
+        const paragraph=data.appendChild(document.createElement("p"));
         myLibrary[i]=new Book(title,author,pages,read);
+        paragraph.textContent=myLibrary[i].info();
         i++;
         for(let j=0;j<i;j++)
         {
-            myLibrary[j].info();
+
+            //myLibrary[j].info();
         }
     }
 }
