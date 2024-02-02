@@ -1,4 +1,4 @@
-let i=1;
+let i=0;
 let data=document.querySelector(".data");
 const myLibrary=[];
 
@@ -12,9 +12,6 @@ function Book(title,author,pages,read){
     }
 }
 
-let knjiga= new Book('zoran','bojan','295','read');
-myLibrary[0]=knjiga;
-
 function addBook(){
     let title=document.getElementById("naslov").value;
     let author=document.getElementById("pisac").value;
@@ -22,15 +19,17 @@ function addBook(){
     let read=document.getElementById("citano").value;
     if(read!=="" && title!=="" && author!=="" && pages!=="")
     {
-        const paragraph=data.appendChild(document.createElement("p"));
+        const fulldiv=data.appendChild(document.createElement("div"));
+        fulldiv.classList.add("line");
+        const paragraph=fulldiv.appendChild(document.createElement("p"));
+        const rmvbtn=fulldiv.appendChild(document.createElement("button"));
+        rmvbtn.classList.add("button2");
+        rmvbtn.textContent="Remove";
+        rmvbtn.setAttribute("id",i);
+
         myLibrary[i]=new Book(title,author,pages,read);
         paragraph.textContent=myLibrary[i].info();
         i++;
-        for(let j=0;j<i;j++)
-        {
-
-            //myLibrary[j].info();
-        }
     }
 }
 

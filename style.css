@@ -33,6 +33,15 @@ input{
     transform: translate(43vw,0);
     margin-top: 15px;
 }
+.button2{
+    height:25px;
+    width:60px;
+}
+.line{
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
 p{
     width:50vw;
     height:40px;
