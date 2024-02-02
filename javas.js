@@ -1,3 +1,4 @@
+let i=1;
 const myLibrary=[];
 
 function Book(title,author,pages,read){
@@ -10,9 +11,23 @@ function Book(title,author,pages,read){
     }
 }
 
+let knjiga= new Book('zoran','bojan','295','read');
+myLibrary[0]=knjiga;
+
 function addBook(){
+    let title=document.getElementById("naslov").value;
+    let author=document.getElementById("pisac").value;
+    let pages=document.getElementById("strana").value;
+    let read=document.getElementById("citano").value;
+    console.log(title);
     
+    myLibrary[i]=new Book(title,author,pages,read);
+    console.log(myLibrary[1].info())
+    i++;
+    for(let j=0;j<i;j++)
+    {
+        myLibrary[j].info();
+    }
 }
 
-const knjiga= new Book('zoran','bojan','295','read');
-knjiga.info();
+
