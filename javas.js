@@ -1,5 +1,8 @@
 let i=0;
 let data=document.querySelector(".data");
+let rmvbtn;
+let allbuttons;
+let broj;
 const myLibrary=[];
 
 function Book(title,author,pages,read){
@@ -33,7 +36,7 @@ function displayBook(library,i){
         fulldiv.classList.add("line");
         const paragraph=fulldiv.appendChild(document.createElement("p"));
         paragraph.textContent=library[j].info();
-        const rmvbtn=fulldiv.appendChild(document.createElement("button"));
+        rmvbtn=fulldiv.appendChild(document.createElement("button"));
         rmvbtn.classList.add("button2");
         rmvbtn.textContent="Remove";
         rmvbtn.setAttribute("id",j);
@@ -43,8 +46,37 @@ function displayBook(library,i){
 function clearall(){
     while (data.lastElementChild) {
         data.removeChild(data.lastElementChild);
-      }
+        }
 }
+
+document.addEventListener('click',(event)=>{
+    if(event.target.classList.contains('button2'))
+    {
+        const dugme=event.target;
+        broj=Number(dugme.id);
+        for(broj;broj<i;broj++)
+        {
+            myLibrary[broj]=myLibrary[broj+1];
+        }
+        i--;
+        clearall();
+        displayBook(myLibrary,i);
+    }
+});
+
+
+// allbuttons.forEach((e)=>{
+//     e.addEventListener('click',()=>{
+//         for(let z=Number(e.id);z<i;z++)
+//         {
+//             myLibrary[z]=myLibrary[z+1];
+//         }
+//         i--;
+//         clearall();
+//         displayBook(myLibrary,i);
+        
+//     });
+// });
 
 
 /*
@@ -71,4 +103,8 @@ let dugme=document.querySelectorAll(".button2");
         rmvbtn.classList.add("button2");
         rmvbtn.textContent="Remove";
         rmvbtn.setAttribute("id",i);
+*/
+
+/*
+        rmvbtn.setAttribute("onclick","removeit()");
 */
