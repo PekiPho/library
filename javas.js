@@ -40,6 +40,12 @@ function displayBook(library,i){
         rmvbtn.classList.add("button2");
         rmvbtn.textContent="Remove";
         rmvbtn.setAttribute("id",j);
+
+
+        readbtn=fulldiv.appendChild(document.createElement("button"));
+        readbtn.classList.add("button3");
+        readbtn.textContent="Read";
+        readbtn.setAttribute("id",j);
     }
 }
 
@@ -59,6 +65,16 @@ document.addEventListener('click',(event)=>{
             myLibrary[broj]=myLibrary[broj+1];
         }
         i--;
+        clearall();
+        displayBook(myLibrary,i);
+    }
+    if(event.target.classList.contains('button3'))
+    {
+        if(myLibrary[event.target.id].read=="read")
+            myLibrary[event.target.id].read="not read";
+        else if(myLibrary[event.target.id].read=="not read")
+        myLibrary[event.target.id].read="read";
+
         clearall();
         displayBook(myLibrary,i);
     }

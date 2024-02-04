@@ -33,7 +33,7 @@ input{
     transform: translate(43vw,0);
     margin-top: 15px;
 }
-.button2{
+.button2,.button3{
     height:25px;
     width:60px;
 }
