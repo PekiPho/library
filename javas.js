@@ -49,6 +49,13 @@ function displayBook(library,i){
     }
 }
 
+Book.prototype.changestatus = function(){
+    if(this.read=="read")
+        this.read="not read";
+    else if(this.read=="not read")
+        this.read="read";
+};
+
 function clearall(){
     while (data.lastElementChild) {
         data.removeChild(data.lastElementChild);
@@ -68,16 +75,24 @@ document.addEventListener('click',(event)=>{
         clearall();
         displayBook(myLibrary,i);
     }
+
     if(event.target.classList.contains('button3'))
     {
-        if(myLibrary[event.target.id].read=="read")
-            myLibrary[event.target.id].read="not read";
-        else if(myLibrary[event.target.id].read=="not read")
-        myLibrary[event.target.id].read="read";
-
+        myLibrary[event.target.id].changestatus();
         clearall();
         displayBook(myLibrary,i);
     }
+
+    // if(event.target.classList.contains('button3'))
+    // {
+    //     if(myLibrary[event.target.id].read=="read")
+    //         myLibrary[event.target.id].read="not read";
+    //     else if(myLibrary[event.target.id].read=="not read")
+    //     myLibrary[event.target.id].read="read";
+
+    //     clearall();
+    //     displayBook(myLibrary,i);
+    // }
 });
 
 
